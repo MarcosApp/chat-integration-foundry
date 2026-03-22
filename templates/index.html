@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ settings.chat_title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="page-glow page-glow-left"></div>
+    <div class="page-glow page-glow-right"></div>
+
+    <div class="app-shell">
+      <aside class="hero-panel">
+        <div class="hero-grid"></div>
+        <span class="badge">{{ settings.chat_badge }}</span>
+        <p class="hero-kicker">{{ settings.chat_panel_label }}</p>
+        <h1>{{ settings.chat_title }}</h1>
+        <p class="subtitle">{{ settings.chat_subtitle }}</p>
+
+        <div class="hero-stack">
+          <div class="hero-stat-card floating-card delay-a">
+            <span class="hero-stat-value">Live</span>
+            <span class="hero-stat-label">Chat session</span>
+          </div>
+          <div class="hero-stat-card floating-card delay-b">
+            <span class="hero-stat-value">Agent</span>
+            <span class="hero-stat-label">Workflow orchestration</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="chat-panel">
+        <header class="chat-header">
+          <div>
+            <p class="eyebrow">{{ settings.chat_panel_label }}</p>
+            <h2>{{ settings.chat_panel_title }}</h2>
+          </div>
+          <button id="resetButton" class="ghost-button" type="button">
+            Nova conversa
+          </button>
+        </header>
+
+        <section id="messages" class="messages" aria-live="polite">
+          {% if settings.show_welcome_message %}
+          <article class="message assistant">
+            <div class="message-meta">{{ settings.assistant_label }}</div>
+            <div class="message-bubble">
+              {{ settings.chat_welcome }}
+            </div>
+          </article>
+          {% endif %}
+        </section>
+
+        <form id="chatForm" class="composer">
+          <label class="sr-only" for="messageInput">Mensagem</label>
+          <textarea
+            id="messageInput"
+            name="message"
+            rows="1"
+            placeholder="{{ settings.chat_input_placeholder }}"
+          ></textarea>
+          <button id="sendButton" class="send-button" type="submit">
+            Enviar
+          </button>
+        </form>
+      </main>
+    </div>
+
+    <script>
+      window.chatConfig = {
+        welcome: {{ settings.chat_welcome|tojson }},
+        showWelcome: {{ settings.show_welcome_message|tojson }},
+        assistantLabel: {{ settings.assistant_label|tojson }},
+        userLabel: {{ settings.user_label|tojson }},
+        pendingMessage: {{ settings.pending_message|tojson }}
+      };
+    </script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
