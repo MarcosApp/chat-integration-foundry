@@ -1,4 +1,4 @@
-# ========== .NET ========== #
+# ========== .NET ==========
 ## Build results
 bin/
 obj/
@@ -25,53 +25,71 @@ project.lock.json
 project.assets.json
 ## Dotnet tools
 .tools/
-# ========== Java ========== #
-## Compiled class files
+
+# ========== Java ==========
 *.class
-## Logs
-*.log
-## Maven
 target/
-## Gradle
 .gradle/
 build/
-## Eclipse
 .project
 .classpath
 .settings/
 .loadpath
-## IntelliJ IDEA
 *.iml
 *.ipr
 *.iws
 out/
-.idea/
-# ========== Python ========== #
-## Byte-compiled / cache
+
+# ========== Python ==========
 __pycache__/
 *.py[cod]
 *$py.class
-## Virtual environment
 env/
 venv/
 ENV/
 .venv/
 .env*
 !.env.example
-## PyInstaller
 *.spec
 dist/
-build/
-## Jupyter Notebook
 .ipynb_checkpoints/
-## Misc
-*.log
 *.pot
-*.pyc
-.DS_Store
 *.sqlite3
-# ========== General ========== #
-## OS generated
+
+# ========== Node / Frontend ==========
+node_modules/
+.npm
+.eslintcache
+.stylelintcache
+.parcel-cache
+.next
+.nuxt
+.svelte-kit/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+*.tgz
+.yarn-integrity
+jspm_packages/
+web_modules/
+.cache/
+.temp/
+.docusaurus/
+.serverless/
+.fusebox/
+.dynamodb/
+.firebase/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# ========== General ==========
 Thumbs.db
 ehthumbs.db
 Desktop.ini
@@ -81,6 +99,9 @@ Desktop.ini
 *.bak
 *.tmp
 *.old
-## Node (just in case mixed project)
-node_modules/
-# End
+*.pid
+*.pid.lock
+*.seed
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+.node_repl_history
+.vscode-test
